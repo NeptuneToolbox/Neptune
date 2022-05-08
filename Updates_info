@@ -1,0 +1,34 @@
+neptune_v1.211110
+   Release date: 10-November-2021
+   Initial release
+
+neptune_v1.211116
+   Release date: 16-November-2021
+   Minor bug fixes
+
+neptune_v1.211118
+   Release date: 18-November-2021
+   Minor bug fixes
+
+-------
+neptune_v1.211227
+   Release date: 27-December-2021
+   SCT-guided manual segmentation masks (for steps 5 and 10):
+   - Step 5 (not-cord mask): Spinal Cord Toolbox (SCT) propseg is used to generate the cord mask boundary, which is displayed to the user. The user can either accept it as is, or modify the points and accept.
+   - Step 10 (anatomical masks): Likewise, SCT propseg is used to generate WM and CSF boundaries while deepseg is used to generate GM boundary. The boundaries are displayed to the user, as before they can either accept it as is or modify the points as required.
+   In both cases, if SCT is unavailable then the user is given the opportunity to manually draw the boundaries themselves. SCT-guided manual masks' generation saves approximately 90% time on average compared to earlier Neptune versions.
+
+-------
+neptune_v1.220505
+   Release date: 05-May-2022
+   - Step 1 (NORDIC denoising): GUI option to perform NORDIC denoising of NIfTI fMRI data (magnitude-only data, OR, if available magnitude+phase data).
+   - Step 10 (anatomical masks): the previous version obtained tissue boundaries using SCT deepseg; now the user also has the option of using PAM50 GM masks warped to the anatomical space upon co-registration in SCT. The updated interface allows the user to choose either the PAM50-based boundary, or the deepseg segmentation boundary, or if none of those are satisfactory then draw one's own boundary.
+   - Step 18 (standard space co-registration using SCT): perform co-registration to PAM50 space and obtain templates, masks, atlases and labels in anatomical space. These masks are currently not used during post-processing, but the user could make use of them outside of Neptune.
+   - Option to discard first and last slices (because with some sequences they are bad).
+   - Option to discard the first N functional volumes.
+   - Option to smooth motion parameters to suppress sporadic artifacts.
+   - Neptune now provides a small set of shortlisted QC outputs for a quick assessment, which has been integrated into the HTML report.
+   - Neptune setup now first uninstalls the older version of Neptune (removes it from MATLAB path and deletes Neptune directory), and then proceeds with the installation of the current version.
+   - Bug fixes and performance improvements.
+
+-------
